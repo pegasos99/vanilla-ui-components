@@ -1,0 +1,216 @@
+/* --- 3. CSS FLOWING LOVE HEART --- */
+
+.heart-container {
+  width: 100%;
+  min-height: 400px;
+  background: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  border-radius: 12px;
+  font-family: system-ui, sans-serif;
+}
+
+/* Contenedor central escalado para que el corazón encaje en pantalla */
+#ui-heart {
+  position: relative;
+  transform: scale(0.7); 
+}
+
+.love {
+  position: absolute;
+  /* Centrado usando márgenes negativos correspondientes a la mitad de la animación (450px / 2) */
+  margin: -225px 0 0 -225px;
+}
+
+.love_word {
+  color: #ea80b0;
+  font-size: 1.4rem;
+  transform: translateY(-100%) rotateZ(-30deg);
+  text-shadow: 0 0 10px #fff;
+  letter-spacing: 2px;
+  white-space: nowrap;
+}
+
+.love_horizontal {
+  animation: horizontal 10000ms infinite alternate ease-in-out;
+  animation-delay: calc(var(--i) * -300ms);
+}
+
+.love_vertical {
+  animation: vertical 20000ms infinite linear;
+  animation-delay: calc(var(--i) * -300ms);
+}
+
+/* Trazado del Eje X */
+@keyframes horizontal {
+  from { transform: translateX(0px); }
+  to   { transform: translateX(450px); }
+}
+
+/* Trazado del Eje Y mediante puntos clave (Keyframes) */
+@keyframes vertical {
+  0%   { transform: translateY(180px); }
+  10%  { transform: translateY(45px); }
+  15%  { transform: translateY(4.5px); }
+  18%  { transform: translateY(0px); }
+  20%  { transform: translateY(4.5px); }
+  22%  { transform: translateY(34.61538px); }
+  24%  { transform: translateY(64.28571px); }
+  25%  { transform: translateY(112.5px); }
+  26%  { transform: translateY(64.28571px); }
+  28%  { transform: translateY(34.61538px); }
+  30%  { transform: translateY(4.5px); }
+  32%  { transform: translateY(0px); }
+  35%  { transform: translateY(4.5px); }
+  40%  { transform: translateY(45px); }
+  50%  { transform: translateY(180px); }
+  71%  { transform: translateY(428.57143px); }
+  72.5%{ transform: translateY(441.17647px); }
+  75%  { transform: translateY(450px); }
+  77.5%{ transform: translateY(441.17647px); }
+  79%  { transform: translateY(428.57143px); }
+  100% { transform: translateY(180px); }
+}
+
+/* --- 2. ANIMATED PRODUCT CARD --- */
+
+.apc-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 500px;
+  background: #e2e2e2; 
+  border-radius: 12px;
+  overflow: hidden;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Contenedor interactivo invisible inicial */
+.apc-card {
+  position: relative;
+  width: 600px;
+  height: 350px;
+  display: flex;
+  align-items: center;
+  border-radius: 20px;
+  transition: 0.5s;
+}
+
+/* El círculo verde (Se convierte en tarjeta al hacer hover) */
+.apc-circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: #00a650;
+  transition: 0.5s;
+  box-shadow: 0 0 30px rgba(0, 166, 80, 0.5);
+}
+
+.apc-card:hover .apc-circle {
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+/* Animación del Logo */
+.apc-logo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 150px;
+  transition: 0.5s;
+  z-index: 10;
+}
+
+.apc-card:hover .apc-logo {
+  top: 40px;
+  left: 40px;
+  transform: translate(0, 0) scale(0.5); 
+  transform-origin: top left;
+}
+
+/* Animación de la Botella */
+.apc-img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  /* Inicia oculta y rotada */
+  transform: translate(-50%, -50%) scale(0) rotate(-20deg);
+  height: 300px;
+  transition: 0.5s;
+  z-index: 9;
+}
+
+.apc-card:hover .apc-img {
+  left: 75%;
+  transform: translate(-50%, -50%) scale(1) rotate(15deg);
+  transition-delay: 0.2s; 
+}
+
+/* Animación del Texto */
+.apc-content {
+  position: absolute;
+  left: 40px;
+  top: 100px;
+  width: 50%;
+  color: #fff;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.5s;
+  z-index: 10;
+}
+
+.apc-card:hover .apc-content {
+  opacity: 1;
+  visibility: visible;
+  transition-delay: 0.4s; 
+}
+
+.apc-content h2 {
+  margin: 0;
+  font-size: 2.5em;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.apc-content p {
+  margin: 15px 0;
+  line-height: 1.5;
+}
+
+.apc-content a {
+  display: inline-block;
+  padding: 10px 20px;
+  background: #fff;
+  color: #00a650;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 40px;
+  margin-top: 10px;
+  transition: 0.3s;
+}
+
+.apc-content a:hover {
+  background: #111;
+  color: #fff;
+}
+
+.apc-logo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 150px;
+  transition: 0.5s;
+  z-index: 10;
+  
+  mix-blend-mode: multiply; 
+}

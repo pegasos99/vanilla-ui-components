@@ -1,0 +1,461 @@
+/* ==========================================
+   FORMULARIOS DE LOGIN
+   ========================================== */
+
+.sliding-login-card {
+  position: relative;
+  width: 660px;
+  height: 440px;
+  overflow: hidden;
+  border-radius: 20px;
+  background: #ffffff;
+  box-shadow: 0 20px 80px rgba(124, 92, 191, 0.16), 0 4px 20px rgba(0, 0, 0, 0.05);
+  font-family: system-ui, sans-serif;
+}
+
+
+.sliding-toggle {
+  display: none;
+}
+
+
+.sliding-bg {
+  position: absolute;
+  inset: 0 auto 0 0;
+  z-index: 2;
+  width: 50%;
+  background: linear-gradient(135deg, #8960e2, #3ba2fb);
+  transition: 0.6s cubic-bezier(0.65, 0, 0.35, 1); 
+}
+
+
+.sliding-toggle:checked ~ .sliding-bg {
+  translate: 100% 0;
+}
+
+
+.sliding-hero,
+.sliding-form {
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.6s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+
+.sliding-hero.signup,
+.sliding-form.signup {
+  opacity: 1;
+  visibility: visible;
+  translate: 0;
+}
+
+.sliding-hero.signin,
+.sliding-form.signup {
+  left: 50%;
+}
+
+.sliding-hero.signin {
+  translate: 25% 0;
+}
+
+.sliding-form.signin {
+  translate: 50% 0;
+}
+
+
+.sliding-toggle:checked ~ .sliding-hero.signup {
+  opacity: 0;
+  visibility: hidden;
+  translate: -25% 0;
+}
+
+.sliding-toggle:checked ~ .sliding-hero.signin,
+.sliding-toggle:checked ~ .sliding-form.signin {
+  opacity: 1;
+  visibility: visible;
+  translate: 0;
+}
+
+.sliding-toggle:checked ~ .sliding-form.signup {
+  opacity: 0;
+  visibility: hidden;
+  translate: -50% 0;
+}
+
+
+.sliding-hero {
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 0 28px;
+  color: #f9f9f9;
+  text-align: center;
+}
+
+.sliding-hero h2 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.sliding-hero p {
+  margin: 0 0 6px;
+  font-size: 14px;
+  line-height: 1.55;
+  opacity: 0.8;
+}
+
+
+.sliding-hero label {
+  padding: 11px 40px;
+  border: 1.5px solid rgba(249, 249, 249, 0.65);
+  border-radius: 32px;
+  background: transparent;
+  font-size: 13px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.sliding-hero label:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+
+.sliding-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 40px;
+  gap: 15px;
+}
+
+.sliding-form h2 {
+  color: #3c4566;
+  margin-bottom: 10px;
+  font-size: 24px;
+}
+
+.sliding-form input {
+  width: 100%;
+  padding: 12px 15px;
+  background: #f1f2ff;
+  border: none;
+  border-radius: 8px;
+  outline: none;
+  color: #3c4566;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+.sliding-form input:focus {
+  box-shadow: 0 0 0 2px #8960e2; 
+}
+
+.sliding-btn {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(135deg, #8960e2, #3ba2fb);
+  color: white;
+  border: none;
+  border-radius: 32px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: 10px;
+  box-shadow: 0 4px 15px rgba(137, 96, 226, 0.3);
+  transition: 0.3s;
+}
+
+.sliding-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(137, 96, 226, 0.4);
+}
+
+/* --- 3. SCENIC GLASSMORPHISM LOGIN --- */
+
+
+.glass-v2-container {
+  width: 100%;
+  min-height: 550px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url("https://i.pinimg.com/originals/d7/b9/0c/d7b90cc80898e8823455a127945719af.jpg") no-repeat;
+  background-size: cover;
+  background-position: center;
+  border-radius: 12px;
+  padding: 20px;
+  position: relative; 
+  overflow: hidden;
+}
+.glass-v2-container::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: #050505; /* Casi negro total */
+  opacity: 0; /* Empieza invisible */
+  transition: opacity 0.5s ease-in-out; /* Se funde a negro suavemente */
+  pointer-events: none;
+  z-index: 10; /* Se pone por encima de todo, tapando el form y la imagen */
+}
+
+.glass-v2-container.lights-out::after {
+  opacity: 1;
+}
+
+.glass-v2-wrapper {
+  width: 420px;
+  background-color: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  color: #fff;
+  border-radius: 16px;
+  padding: 40px 30px;
+}
+
+.glass-v2-wrapper h1 {
+  font-size: 30px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+
+.glass-v2-input-box {
+  position: relative;
+  width: 100%;
+  height: 50px;
+  margin: 30px 0;
+}
+
+.glass-v2-input-box input {
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 40px;
+  font-size: 16px;
+  color: #fff;
+  padding: 0 45px 0 20px;
+}
+
+.glass-v2-input-box input::placeholder {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.glass-v2-input-box i {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 20px;
+}
+
+
+.glass-v2-remember-forgot {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  margin: -15px 0 15px;
+}
+
+.glass-v2-remember-forgot label input {
+  accent-color: #fff;
+  margin-right: 5px;
+}
+
+.glass-v2-remember-forgot a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.glass-v2-remember-forgot a:hover {
+  text-decoration: underline;
+}
+
+.glass-v2-btn {
+  width: 100%;
+  height: 45px;
+  background: #fff;
+  border: none;
+  outline: none;
+  border-radius: 40px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  font-size: 16px;
+  color: #333;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.glass-v2-btn:hover {
+  background: #e6e6e6;
+}
+
+.glass-v2-register-link {
+  text-align: center;
+  font-size: 14px;
+  margin: 20px 0 10px;
+}
+
+.glass-v2-register-link p a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.glass-v2-register-link p a:hover {
+  text-decoration: underline;
+}
+
+/* ==========================================
+   ZONA DE FANTASMAS KAWAII E INTERACCIÓN
+   ========================================== */
+
+.spooky-ghosts {
+  flex: 1;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 15px;
+  height: 150px;
+  z-index: 10;
+  /* Animación súper elástica al moverse */
+  transition: transform 0.6s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+/* --- LA MAGIA: Cuando cambia de Login a Registro --- */
+.spooky-card.switching .spooky-ghosts {
+  transform: translateX(140px) scale(1.4); /* Flotan hacia la derecha y crecen */
+}
+.spooky-card.switching .spooky-form-container {
+  opacity: 0; /* El formulario desaparece mientra los fantasmas lo tapan */
+}
+
+.spooky-form-container {
+  flex: 1.2;
+  transition: opacity 0.3s ease; /* Transición suave de opacidad */
+}
+
+/* Burbuja de diálogo suavizada */
+.spooky-bubble {
+  position: absolute;
+  top: -40px;
+  background: #fff;
+  border: 2px solid #eef2f3;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  padding: 8px 15px;
+  border-radius: 20px;
+  font-weight: bold;
+  color: #2c3e50;
+  font-size: 14px;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+  z-index: 11;
+}
+.spooky-bubble::after {
+  content: ''; position: absolute; bottom: -8px; left: 50%; transform: translateX(-50%);
+  border-width: 8px 8px 0; border-style: solid;
+  border-color: #fff transparent transparent transparent;
+}
+
+/* Construcción del cuerpo del fantasma */
+.ghost {
+  background: linear-gradient(135deg, #ffffff 0%, #eef2f3 100%);
+  border: 3px solid #2c3e50; 
+  border-radius: 60px 60px 15px 15px;
+  position: relative;
+  box-shadow: 
+    0 10px 20px rgba(0,0,0,0.1), 
+    inset -5px -10px 15px rgba(0,0,0,0.05);
+  animation: float 3s ease-in-out infinite;
+}
+.big-ghost { width: 90px; height: 110px; }
+.small-ghost { width: 60px; height: 80px; animation-delay: 0.5s; }
+
+/* Ojos con brillito blanco */
+.eyes { position: absolute; top: 35%; left: 0; width: 100%; display: flex; justify-content: center; gap: 14px; }
+.small-ghost .eyes { gap: 10px; }
+.eye {
+  width: 12px; height: 12px; background: #2c3e50;
+  border-radius: 50%; transition: all 0.2s; position: relative;
+}
+.eye::after {
+  content: ''; position: absolute; top: 2px; right: 2px;
+  width: 4px; height: 4px; background: #fff; border-radius: 50%;
+}
+.small-ghost .eye { width: 9px; height: 9px; }
+.small-ghost .eye::after { width: 3px; height: 3px; top: 1px; right: 1px; }
+
+/* Mejillas rosadas */
+.cheeks {
+  position: absolute; top: 48%; left: 0; width: 100%; display: flex; justify-content: center; gap: 24px;
+  opacity: 0.6; transition: all 0.2s;
+}
+.small-ghost .cheeks { top: 50%; gap: 16px; }
+.cheek { width: 12px; height: 6px; background: #ff8a8a; border-radius: 50%; }
+.small-ghost .cheek { width: 8px; height: 4px; }
+
+/* Boquita tierna */
+.mouth {
+  position: absolute; top: 55%; left: 50%; transform: translateX(-50%);
+  width: 8px; height: 10px; background: #2c3e50;
+  border-radius: 10px 10px 20px 20px; transition: all 0.2s;
+}
+
+/* --- ESTADOS INTERACTIVOS --- */
+
+/* ERROR */
+.spooky-card.error .spooky-bubble { opacity: 1; transform: translateY(0); color: #e74c3c; border-color: #e74c3c; }
+.spooky-card.error .eye { height: 6px; transform: translateY(4px); border-radius: 10px 10px 0 0; background: #2c3e50; }
+.spooky-card.error .eye::after { display: none; }
+.spooky-card.error .mouth {
+  background: transparent; height: 8px; width: 12px;
+  border: 3px solid #2c3e50; border-bottom: none; border-radius: 10px 10px 0 0; top: 58%;
+}
+.spooky-card.error .cheeks { opacity: 0.2; transform: translateY(3px); }
+
+/* SUCCESS */
+.spooky-card.success .spooky-bubble { opacity: 1; transform: translateY(0); color: #2ecc71; border-color: #2ecc71; }
+.spooky-card.success .eye { background: transparent; border: 3px solid #2c3e50; border-bottom: none; border-radius: 10px 10px 0 0; height: 10px; transform: translateY(-2px); }
+.spooky-card.success .eye::after { display: none; }
+.spooky-card.success .mouth { background: #ff8a8a; height: 14px; width: 16px; border-radius: 0 0 20px 20px; }
+.spooky-card.success .cheeks { opacity: 0.9; transform: translateY(-2px); }
+
+/* FORMULARIOS Y BOTONES */
+.spooky-form { display: flex; flex-direction: column; gap: 15px; }
+.spooky-form h2 { margin: 0; color: #333; font-size: 24px; }
+
+.spooky-input label { display: block; font-size: 13px; color: #666; margin-bottom: 5px; font-weight: bold; }
+.spooky-input input {
+  width: 100%; padding: 10px 15px; border: 2px solid #ddd;
+  border-radius: 8px; font-size: 14px; outline: none; transition: 0.3s; color: #333;
+}
+.spooky-input input:focus { border-color: #7b2cbf; }
+
+.spooky-btn {
+  background: #7b2cbf; color: white; border: none; padding: 12px;
+  border-radius: 8px; font-size: 15px; font-weight: bold; cursor: pointer; transition: 0.3s; margin-top: 5px;
+}
+.spooky-btn:hover { background: #5a189a; }
+.spooky-card.error .spooky-btn { background: #e74c3c; animation: shake 0.4s; }
+.spooky-card.success .spooky-btn { background: #2ecc71; }
+
+/* Links de cambio de formulario */
+.switch-link { font-size: 13px; text-align: center; margin-top: 10px; color: #666; }
+.switch-link a { color: #7b2cbf; text-decoration: none; font-weight: bold; }
+
+@keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+@keyframes shake { 0%, 100% { transform: translateX(0); } 25% { transform: translateX(-5px); } 75% { transform: translateX(5px); } }

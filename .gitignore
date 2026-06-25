@@ -1,0 +1,15 @@
+# VSCode
+.vscode/
+
+# Sistema
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Dependencias
+node_modules/
+
+# Archivos temporales
+dist/

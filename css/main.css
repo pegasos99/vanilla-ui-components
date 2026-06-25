@@ -1,0 +1,193 @@
+@import url('./components.css');
+@import url('./login.css'); 
+@import url('./animations.css');
+
+:root {
+    --bg-color: #1a1a1c;
+    --card-bg: #d2c8a8; 
+    --card-bg-dark: #8c8571;
+    --accent: #f4d35e;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: white;
+    font-family: system-ui, sans-serif;
+    overflow: hidden; 
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.carousel-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+#category-title {
+    position: absolute;
+    top: 15%;
+    font-size: 2rem;
+    font-weight: 300;
+    letter-spacing: 2px;
+    color: var(--accent);
+    text-transform: uppercase;
+    transition: opacity 0.3s;
+}
+
+.controls-hint {
+    position: absolute;
+    bottom: 10%;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.4);
+    letter-spacing: 1px;
+}
+
+.carousel {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective: 1200px; 
+    
+}
+
+.card {
+    position: absolute;
+    width: 180px;
+    height: 350px;
+    background: linear-gradient(180deg, var(--card-bg-dark) 0%, #4a463b 100%);
+    border: 2px solid rgba(255,255,255,0.1);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    transform-style: preserve-3d;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.1s cubic-bezier(0.25, 1, 0.5, 1), 
+                opacity 0.5s, 
+                background 0.3s,
+                box-shadow 0.3s;
+                will-change: transform;
+    user-select: none;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+
+}
+
+.card.active {
+    background: linear-gradient(180deg, var(--card-bg) 0%, #a89f81 100%);
+    border: 2px solid var(--accent);
+    box-shadow: 0 0 30px rgba(244, 211, 94, 0.4);
+    transform: translateX(0px) scale(1) rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg));
+}
+
+.card-icon {
+    font-size: 3.5rem; 
+    margin-bottom: 20px;
+    color: rgba(255, 255, 255, 0.4); 
+    transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+.card.active .card-icon {
+    color: var(--accent); 
+    transform: scale(1.1) translateY(-5px); 
+    filter: drop-shadow(0 0 15px rgba(244, 211, 94, 0.6));
+}
+
+.card:not(.active) .card-title {
+    color: rgba(255, 255, 255, 0.5);
+}
+.card-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #1a1a1c;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.card.entering {
+    animation: cardEnter 1s forwards;
+}
+
+@keyframes cardEnter {
+
+    0%{
+        transform:
+            translateX(0)
+            scale(1)
+            rotateX(0deg)
+            rotateY(0deg);
+    }
+
+    100%{
+        transform:
+            translateX(0)
+            scale(15)
+            translateZ(1000px);
+    }
+}
+
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: black;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.8s;
+}
+
+body.entering::after {
+    opacity: 1;
+}
+
+#category-title.fade-out,
+.controls-hint.fade-out {
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: all 0.4s ease;
+}
+
+.flash {
+    position: fixed;
+    inset: 0;
+    background: #f4d35e;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.flash.active {
+    animation: flashEffect 0.6s forwards;
+}
+
+@keyframes flashEffect {
+
+    0%{
+        opacity:0;
+    }
+
+    40%{
+        opacity:0.9;
+    }
+
+    100%{
+        opacity:0;
+    }
+}
+
+
