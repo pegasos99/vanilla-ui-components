@@ -14,8 +14,6 @@
 
 ---
 
-> 📸 **Tip para tu Portafolio:** *Sube una imagen de tu menú 3D a la carpeta de tu proyecto y reemplaza este texto con la imagen usando: `![Vista previa del proyecto](./ruta-a-tu-imagen.png)`*
-
 ## 📑 Tabla de Contenidos
 - [Acerca del Proyecto](#-acerca-del-proyecto)
 - [Características Principales](#-características-principales)
