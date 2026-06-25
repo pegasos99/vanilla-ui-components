@@ -1,6 +1,29 @@
-# 📦 Vanilla UI Components Vault
+<h1 align="center">📦 Vanilla UI Components Vault</h1>
 
-> **Una galería interactiva y moderna de componentes UI lista para copiar y pegar.** Construida 100% sin frameworks, diseñada para agilizar el desarrollo frontend con una interfaz 3D y búsqueda inteligente.
+<p align="center">
+  <strong>Una galería interactiva y moderna de componentes UI lista para copiar y pegar.</strong><br>
+  Construida 100% sin frameworks, diseñada para agilizar el desarrollo frontend con una interfaz 3D y búsqueda inteligente.
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="HTML5">
+  <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" alt="CSS3">
+  <img src="https://img.shields.io/badge/Vanilla_JS-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript">
+  <img src="https://img.shields.io/badge/Fuse.js-B1B1B1?style=for-the-badge" alt="Fuse.js">
+</p>
+
+---
+
+> 📸 **Tip para tu Portafolio:** *Sube una imagen de tu menú 3D a la carpeta de tu proyecto y reemplaza este texto con la imagen usando: `![Vista previa del proyecto](./ruta-a-tu-imagen.png)`*
+
+## 📑 Tabla de Contenidos
+- [Acerca del Proyecto](#-acerca-del-proyecto)
+- [Características Principales](#-características-principales)
+- [Arquitectura y Tecnologías](#-arquitectura-y-tecnologías)
+- [Instalación y Despliegue](#-cómo-instalar-y-ejecutar-localmente)
+- [Guía de Uso (Agregar Componentes)](#-cómo-agregar-un-nuevo-componente-guía-de-uso)
+
+---
 
 ## 📖 Acerca del Proyecto
 
